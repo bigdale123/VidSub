@@ -11,6 +11,7 @@ def vid_sub(source_folder):
             subsFile=subs_folder+"\\"+filename[:-4]+"\\4_English.srt"
             backup_sub=subs_folder+"\\"+filename[:-4]+"\\3_English.srt"
             backup_backup_sub=subs_folder+"\\"+filename[:-4]+"\\2_English.srt"
+            backup_backup_backup_sub=subs_folder+"\\"+filename[:-4]+"\\5_English.srt"
             subFileCopy=source_folder+"\\"+filename[:-4]+".srt"
             print(subsFile)
             print(subFileCopy)
@@ -20,7 +21,10 @@ def vid_sub(source_folder):
                 except:
                     shutil.copy(backup_sub,subFileCopy)
             except:
-                shutil.copy(backup_backup_sub,subFileCopy)
+                try:
+                    shutil.copy(backup_backup_sub,subFileCopy)
+                except:
+                    shutil.copy(backup_backup_backup_sub,subFileCopy)
 
 def vid_sub_wrapper(series_folder):
     for filename in os.listdir(series_folder):
