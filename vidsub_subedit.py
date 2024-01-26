@@ -29,4 +29,5 @@ if __name__ == "__main__":
     jobs_complete = 0
     for i in threads:
         i.start()
+    for i in threads:
         i.join()
